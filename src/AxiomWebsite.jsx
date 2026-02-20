@@ -55,30 +55,147 @@ const testQuestions = [
 ];
 
 const members = [
-  { id: 'founder', name: 'The Founder', role: 'Founding Director', division: 'Collegium Infinitatis', tier: 'Council', isFounder: true, image: '◒', location: 'Kigali, Rwanda', bio: 'Founded Axiom while pursuing doctoral research. Driven by conviction that boundaries between disciplines are illusions.', research: ['Formal Verification', 'Type Theory', 'Machine Reasoning'], quote: '"Nothing can stop a mind determined to understand."' },
-  { id: 'kai', name: 'Kai Tanaka', role: 'Lead Systems Architect', division: 'Machinatores', tier: 'Core', image: '👤', location: 'Tokyo, Japan', bio: 'Decade of experience in distributed systems and robotics.', research: ['Distributed Systems', 'Robotics', 'Embedded AI'] },
-  { id: 'elena', name: 'Elena Vasquez', role: 'Research Scientist', division: 'Navigatores', tier: 'Core', image: '👤', location: 'Medellín, Colombia', bio: 'Specializes in computational environmental modeling.', research: ['Environmental Modeling', 'Sensor Networks', 'Climate Science'] },
-  { id: 'marcus', name: 'Marcus Adebayo', role: 'Research Engineer', division: 'Machinatores', tier: 'Core', image: '👤', location: 'Kigali, Rwanda', bio: 'Systems engineer specializing in low-power computing.', research: ['Edge Computing', 'Hardware Design', 'IoT'] },
-  { id: 'sophia', name: 'Dr. Sophia Müller', role: 'Visiting Researcher', division: 'Collegium Infinitatis', tier: 'Core', image: '👤', location: 'Berlin, Germany', bio: 'Mathematical logician on sabbatical from Humboldt University.', research: ['Type Theory', 'Category Theory', 'Proof Assistants'] },
+  { 
+    id: 'founder', 
+    name: 'Gnankan Landry Regis N\'guessan', 
+    role: 'Founder & Founding Director', 
+    division: 'Collegium Infinitatis', 
+    tier: 'Council', 
+    isFounder: true, 
+    image: '/photos/Regis.jpg', 
+    location: 'Kigali, Rwanda', 
+    bio: 'Regis is a PhD student in Applied Mathematics and Computational Sciences and the founder of Axiom. His work spans approximation theory, scientific machine learning, speech and language processing, and embedded intelligence, with an emphasis on building models that are both theoretically principled and deployable in real-world systems. A central theme of his research is the belief that many limitations of modern deep learning arise from insufficient mathematical structure. His work therefore revisits classical mathematics—such as approximation theory, functional analysis, and dynamical systems—to design neural architectures with improved expressiveness, interpretability, and efficiency. Regis is the originator of Müntz-Szász Networks (MSN), a class of neural architectures inspired by the classical Müntz-Szász theorem from approximation theory. Beyond MSN, his research spans speech and language technologies with focus on low-resource languages, embedded intelligence and edge AI for resource-constrained hardware, and robotics and intelligent systems where efficiency, stability, and interpretability are critical.', 
+    research: ['Müntz-Szász Networks', 'Scientific ML', 'Speech Processing', 'Embedded AI', 'Robotics'], 
+    quote: '"Nothing can stop a mind determined to understand."' 
+  },
+  { 
+    id: 'aurelle', 
+    name: 'Dr. Aurelle Tchagna Kouanou', 
+    role: 'Senior Lecturer & Researcher', 
+    division: 'Machinatores', 
+    tier: 'Core', 
+    image: '/photos/Aurelle.jpg', 
+    location: 'Yaoundé, Cameroon', 
+    bio: 'Dr. Aurelle Tchagna Kouanou is a computer and telecommunications engineer (2015) and holds a Master\'s degree in Electronics (2013). He obtained his PhD in 2019 with a specialization in Big Data and Artificial Intelligence. He is a Senior Lecturer and Researcher in Artificial Intelligence and Data Science at the National Advanced School of Polytechnic, University of Yaoundé I, Cameroon, and completed a Postdoctoral Fellowship in Health Data Science at McMaster University. His research focuses on hybrid, interpretable, and data-efficient machine learning models for early warning systems in healthcare, IoT-driven agriculture, and digital infrastructure analytics. He has led and contributed to multiple interdisciplinary projects, supervised graduate students, and actively supports capacity building in AI and data science across Africa.', 
+    research: ['Healthcare AI', 'IoT Agriculture', 'Interpretable ML', 'Early Warning Systems', 'Data Efficiency'] 
+  },
+  { 
+    id: 'richard', 
+    name: 'Richard Muhirwa', 
+    role: 'Research Associate', 
+    division: 'Machinatores', 
+    tier: 'Core', 
+    image: '/photos/Richard.jpg', 
+    location: 'Kigali, Rwanda', 
+    bio: 'Richard is a Research Associate at Carnegie Mellon University Africa, where he focuses on culturally sensitive social robotics for Africa. His current work explore how Rwandan cultural norms and behaviors can be integrated into human-robot interaction to ensure more intuitive and context-aware robotics for African communities. With a strong background in Embedded Systems and Robotics, he holds a Master\'s degree in Electrical and Computer Engineering from CMU Africa.', 
+    research: ['Social Robotics', 'Human-Robot Interaction', 'Embedded Systems', 'Cultural Computing'] 
+  },
+  { 
+    id: 'stephen', 
+    name: 'Stephen Nyaranga', 
+    role: 'PhD Student & IT Lead', 
+    division: 'Navigatores', 
+    tier: 'Core', 
+    image: '/photos/Stephen.jpg', 
+    location: 'Kigali, Rwanda', 
+    bio: 'Stephen Nyaranga is a young African scientist whose work sits at the intersection of climate science, artificial intelligence, and geospatial technology. He is currently a PhD Fellow in Climate Science under the prestigious CLARITY-Africa Program, an international initiative led by Imperial College London in collaboration with AIMS-RIC and partner institutions across Africa. Stephen\'s research explores how deep learning and satellite remote sensing—especially Sentinel-1 SAR time-series analysis—can be used to better understand urban flooding, climate extremes, and community vulnerability in rapidly growing African cities. His work aims to develop tools that strengthen early warning systems, disaster preparedness, and climate resilience for some of the most at-risk populations. Before beginning his PhD, Stephen completed an MSc in Mathematical Sciences (Data Science) at AIMS–Senegal, where he worked on AI-driven climate modeling, and he pursued an MSc in Geophysics at ICTP–EAIFR, specializing in Earth observation and InSAR deformation analysis. He graduated with First Class Honours in Physics and Mathematics from Karatina University, Kenya. Alongside his academic journey, Stephen has built a strong career in technology leadership. As the Head of IT at Vatel Rwanda, he has driven major digital transformation initiatives, from infrastructure modernization and cloud integration to AI adoption in teaching and operations. He has trained faculty, students, and staff on artificial intelligence, developed automated systems, and enhanced the institution\'s digital visibility—impacting hundreds of learners. Stephen\'s work reflects his passion for combining science, technology, and innovation to solve real-world problems. His research interests span GeoAI, hydrological modeling, Earth observation, climate resilience, and AI for sustainable development.', 
+    research: ['GeoAI', 'Climate Resilience', 'SAR Analysis', 'Earth Observation', 'Hydrological Modeling'] 
+  },
 ];
-
 const publications = [
-  { id: 1, title: 'Toward Verified Neural Architectures', authors: ['The Founder', 'Sophia Müller'], venue: 'ICML 2024', year: 2024, type: 'Conference', tags: ['Verification', 'Neural Networks'] },
-  { id: 2, title: 'Real-Time Verification for Autonomous Systems', authors: ['Kai Tanaka'], venue: 'ICRA 2024', year: 2024, type: 'Conference', tags: ['Robotics', 'Verification'] },
-  { id: 3, title: 'Invariant-Centric Modeling of Adaptive Systems', authors: ['The Founder'], venue: 'JAIR', year: 2024, type: 'Journal', tags: ['Formal Methods'] },
-  { id: 4, title: 'Self-Organizing Sensor Networks for Tropical Ecosystems', authors: ['Elena Vasquez'], venue: 'Environmental Modelling', year: 2023, type: 'Journal', tags: ['Environmental Science'] },
+  { 
+    id: 1, 
+    title: 'Radial Müntz-Szász Networks: Neural Architectures with Learnable Power Bases for Multidimensional Singularities', 
+    authors: ['Gnankan Landry Regis N\'guessan', 'Bum Jun Kim'], 
+    venue: 'ArXiv Preprint', 
+    year: 2026, 
+    type: 'Preprint', 
+    tags: ['Neural Networks', 'Radial Singularities', 'Power-Law Bases'],
+    arxiv: '2602.08419',
+    link: 'https://arxiv.org/abs/2602.08419'
+  },
+  { 
+    id: 2, 
+    title: 'Discovering Scaling Exponents with Physics-Informed Müntz-Szász Networks', 
+    authors: ['Gnankan Landry Regis N\'guessan', 'Bum Jun Kim'], 
+    venue: 'ArXiv Preprint', 
+    year: 2026, 
+    type: 'Preprint', 
+    tags: ['Physics-Informed Learning', 'Scaling Exponents', 'PINNs'],
+    arxiv: '2601.22751',
+    link: 'https://arxiv.org/abs/2601.22751'
+  },
+  { 
+    id: 3, 
+    title: 'PALMA: A Lightweight Tropical Algebra Library for ARM-Based Embedded Systems', 
+    authors: ['Gnankan Landry Regis N\'guessan'], 
+    venue: 'ArXiv Preprint', 
+    year: 2026, 
+    type: 'Preprint', 
+    tags: ['Tropical Algebra', 'Embedded Systems', 'ARM', 'Optimization'],
+    arxiv: '2601.17028',
+    link: 'https://arxiv.org/abs/2601.17028'
+  },
+  { 
+    id: 4, 
+    title: 'Müntz-Szász Networks: Neural Architectures with Learnable Power-Law Bases', 
+    authors: ['Gnankan Landry Regis N\'guessan'], 
+    venue: 'ArXiv Preprint', 
+    year: 2024, 
+    type: 'Preprint', 
+    tags: ['Neural Networks', 'Approximation Theory', 'Singular Functions', 'PINNs'],
+    arxiv: '2512.22222',
+    link: 'https://arxiv.org/abs/2512.22222'
+  },
 ];
 
 const projects = [
   { id: 'chiral', name: 'Project Chiral Dynamics', status: 'Active', division: 'Collegium Infinitatis', desc: 'Formalizing fundamental invariants of complex adaptive systems.', leads: ['The Founder', 'Sophia Müller'] },
   { id: 'veridian', name: 'Project Veridian Protocol', status: 'Active', division: 'Machinatores', desc: 'Mathematically verifiable Machine Reasoning systems.', leads: ['Kai Tanaka', 'Marcus Adebayo'] },
-  { id: 'tellurian', name: 'Project Tellurian Weave', status: 'Active', division: 'Navigatores', desc: 'Resilient sensing networks for constrained environments.', leads: ['Elena Vasquez', 'Marcus Adebayo'] },
+  
 ];
 
 const news = [
-  { date: 'Dec 15, 2024', cat: 'Publication', title: 'Paper Accepted at ICML 2024', sum: 'Type-theoretic verification framework accepted.', featured: true },
-  { date: 'Nov 28, 2024', cat: 'Community', title: 'Applications Open for 2025', sum: 'The Aperture is now open.', featured: true },
-  { date: 'Nov 10, 2024', cat: 'Deployment', title: 'Tellurian Weave Expands', sum: 'Second pilot site operational.', featured: false },
+  { 
+    date: 'Feb 9, 2026', 
+    cat: 'Publication', 
+    title: 'Radial Müntz-Szász Networks', 
+    sum: 'New paper on neural architectures with learnable power bases for multidimensional singularities. ArXiv: 2602.08419', 
+    featured: true,
+    link: 'https://arxiv.org/abs/2602.08419'
+  },
+  { 
+    date: 'Jan 30, 2026', 
+    cat: 'Publication', 
+    title: 'Discovering Scaling Exponents with Physics-Informed MSN', 
+    sum: 'Physics-informed Müntz-Szász Networks treating scaling exponents as trainable parameters. ArXiv: 2601.22751', 
+    featured: true,
+    link: 'https://arxiv.org/abs/2601.22751'
+  },
+  { 
+    date: 'Jan 17, 2026', 
+    cat: 'Publication', 
+    title: 'PALMA: Tropical Algebra Library for ARM Systems', 
+    sum: 'Lightweight tropical algebra library bringing optimization to ARM-based embedded systems. ArXiv: 2601.17028', 
+    featured: true,
+    link: 'https://arxiv.org/abs/2601.17028'
+  },
+  { 
+    date: 'Dec 22, 2024', 
+    cat: 'Publication', 
+    title: 'Müntz-Szász Networks', 
+    sum: 'Neural architectures with learnable power-law bases for singular function approximation. ArXiv: 2512.22222', 
+    featured: false,
+    link: 'https://arxiv.org/abs/2512.22222'
+  },
+  { 
+    date: 'Nov 28, 2024', 
+    cat: 'Community', 
+    title: 'Applications Open for 2025', 
+    sum: 'The Aperture is now open.', 
+    featured: false ,
+    link: 'https://forms.gle/q8niQmCVBBjf1Uf1A'
+  },
 ];
 
 const occultumSeekers = [
@@ -446,7 +563,6 @@ function AboutPage({ discoverSymbol }) {
     </div>
   );
 }
-
 function PeoplePage({ members, selected, setSelected, discoverSymbol }) {
   if (selected) {
     const m = members.find(x => x.id === selected);
@@ -456,8 +572,9 @@ function PeoplePage({ members, selected, setSelected, discoverSymbol }) {
           <div className="max-w-4xl mx-auto px-6">
             <button onClick={() => setSelected(null)} className="text-sm text-[#c9a227] hover:underline mb-8">← Back</button>
             <div className={`flex flex-col md:flex-row gap-8 mb-12 ${m.isFounder ? 'p-6 border border-[#c9a227]/30 founder-glow' : ''}`}>
-              <div className={`w-32 h-32 bg-[#0f0f18] border ${m.isFounder ? 'border-[#c9a227]' : 'border-[#c9a227]/20'} flex items-center justify-center text-6xl relative`}>
-                {m.image}
+              {/* CHANGE 1: Added overflow-hidden and img tag */}
+              <div className={`w-32 h-32 bg-[#0f0f18] border ${m.isFounder ? 'border-[#c9a227]' : 'border-[#c9a227]/20'} overflow-hidden relative`}>
+                <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
                 {m.isFounder && <span className="absolute -top-2 -right-2 text-[#c9a227]">∆</span>}
               </div>
               <div>
@@ -493,7 +610,10 @@ function PeoplePage({ members, selected, setSelected, discoverSymbol }) {
               <button key={m.id} onClick={() => setSelected(m.id)} className={`bg-[#0f0f18] border p-6 text-left card relative ${m.isFounder ? 'border-[#c9a227]/50 founder-glow' : 'border-[#c9a227]/10'}`}>
                 {m.isFounder && <span className="absolute top-3 right-3 text-[#c9a227]">∆</span>}
                 <div className="flex items-start gap-4">
-                  <div className={`w-16 h-16 bg-[#0a0a0f] border flex items-center justify-center text-3xl ${m.isFounder ? 'border-[#c9a227]' : 'border-[#c9a227]/20'}`}>{m.image}</div>
+                  {/* CHANGE 2: Added overflow-hidden and img tag */}
+                  <div className={`w-16 h-16 bg-[#0a0a0f] border overflow-hidden ${m.isFounder ? 'border-[#c9a227]' : 'border-[#c9a227]/20'}`}>
+                    <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+                  </div>
                   <div>
                     <h3 className="font-display text-xl mb-1">{m.name}</h3>
                     <p className="text-sm text-[#c9a227]">{m.role}</p>
@@ -518,18 +638,66 @@ function ResearchPage({ nav, discoverSymbol }) {
           <span className="font-mono text-[#c9a227] tracking-[0.3em] text-sm">FOCUS AREAS</span>
           <h1 className="font-display text-5xl md:text-6xl mt-4 mb-12">Research</h1>
           <div className="space-y-12">
-            {[{icon:'∿',title:'Foundations',topics:['Type Theory','Category Theory','Complexity','Logic']},
-              {icon:'⊛',title:'Machine Reasoning',topics:['Neural Verification','AI Safety','Runtime Verification']},
-              {icon:'◈',title:'Applied Systems',topics:['Environmental Sensing','Climate Modeling','Edge Computing']}].map((a,i) => (
+            {[
+              {
+                icon:'∿',
+                title:'Foundations',
+                topics:[
+                  'Approximation Theory',
+                  'Type Theory & Formal Methods',
+                  'Category Theory',
+                  'Computational Complexity',
+                  'Mathematical Logic'
+                ]
+              },
+              {
+                icon:'⊛',
+                title:'Machine Reasoning',
+                topics:[
+                  'Physics-Informed Neural Networks',
+                  'Neural Architecture Design',
+                  'Interpretable Machine Learning',
+                  'AI Safety & Verification',
+                  'Scientific Machine Learning'
+                ]
+              },
+              {
+                icon:'◈',
+                title:'Applied Systems',
+                topics:[
+                  'Social Robotics & Human-Robot Interaction',
+                  'Climate Science & Earth Observation',
+                  'Embedded AI & Edge Computing',
+                  'Tropical Algebra for Optimization',
+                  'IoT & Distributed Systems'
+                ]
+              }
+            ].map((a,i) => (
               <div key={i} className="grid md:grid-cols-3 gap-8">
-                <div><div className="w-16 h-16 border border-[#c9a227] flex items-center justify-center mb-4"><span className="text-3xl text-[#c9a227]">{a.icon}</span></div><h2 className="font-display text-3xl gold-grad">{a.title}</h2></div>
-                <div className="md:col-span-2 space-y-3">{a.topics.map((t,j) => <div key={j} className="bg-[#0f0f18] border border-[#c9a227]/10 p-4 card">{t}</div>)}</div>
+                <div>
+                  <div className="w-16 h-16 border border-[#c9a227] flex items-center justify-center mb-4">
+                    <span className="text-3xl text-[#c9a227]">{a.icon}</span>
+                  </div>
+                  <h2 className="font-display text-3xl gold-grad">{a.title}</h2>
+                </div>
+                <div className="md:col-span-2 space-y-3">
+                  {a.topics.map((t,j) => (
+                    <div key={j} className="bg-[#0f0f18] border border-[#c9a227]/10 p-4 card hover:border-[#c9a227]/30 transition-all">
+                      <span className="text-[#e8e6e1]/80">{t}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
           <div className="mt-16 p-8 bg-[#0f0f18] border border-[#c9a227]/10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div><h3 className="font-display text-2xl mb-2">Explore Publications</h3><p className="text-[#e8e6e1]/60">Papers and preprints from Axiom.</p></div>
-            <button onClick={() => nav('publications')} className="px-6 py-3 bg-[#c9a227] text-[#0a0a0f] tracking-widest uppercase text-sm">View →</button>
+            <div>
+              <h3 className="font-display text-2xl mb-2">Explore Publications</h3>
+              <p className="text-[#e8e6e1]/60">Papers and preprints from Axiom.</p>
+            </div>
+            <button onClick={() => nav('publications')} className="px-6 py-3 bg-[#c9a227] text-[#0a0a0f] tracking-widest uppercase text-sm hover:bg-[#f4d35e] transition-all">
+              View →
+            </button>
           </div>
         </div>
       </section>
@@ -587,21 +755,72 @@ function ProjectsPage({ projects, selected, setSelected, discoverSymbol }) {
 function PublicationsPage({ pubs, filter, setFilter }) {
   const types = ['all', ...new Set(pubs.map(p => p.type))];
   const filtered = filter === 'all' ? pubs : pubs.filter(p => p.type === filter);
+  
   return (
     <div className="pt-24">
       <section className="py-12">
         <div className="max-w-6xl mx-auto px-6">
           <span className="font-mono text-[#c9a227] tracking-[0.3em] text-sm">PAPERS</span>
           <h1 className="font-display text-5xl md:text-6xl mt-4 mb-8">Publications</h1>
-          <div className="flex flex-wrap gap-2 mb-12">{types.map(t => <button key={t} onClick={() => setFilter(t)} className={`px-4 py-2 text-xs tracking-widest uppercase ${filter === t ? 'bg-[#c9a227] text-[#0a0a0f]' : 'border border-[#c9a227]/30 text-[#e8e6e1]/60'}`}>{t}</button>)}</div>
+          
+          <div className="flex flex-wrap gap-2 mb-12">
+            {types.map(t => (
+              <button 
+                key={t} 
+                onClick={() => setFilter(t)} 
+                className={`px-4 py-2 text-xs tracking-widest uppercase transition-all ${
+                  filter === t 
+                    ? 'bg-[#c9a227] text-[#0a0a0f]' 
+                    : 'border border-[#c9a227]/30 text-[#e8e6e1]/60 hover:border-[#c9a227]'
+                }`}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+          
           <div className="space-y-6">
             {filtered.map(p => (
               <div key={p.id} className="bg-[#0f0f18] border border-[#c9a227]/10 p-6 card">
-                <div className="flex items-center gap-3 mb-3"><span className="font-mono text-sm text-[#c9a227]">{p.year}</span><span className="px-2 py-1 bg-[#c9a227]/10 text-[#c9a227] text-xs">{p.type}</span></div>
-                <h3 className="font-display text-xl mb-2">{p.title}</h3>
-                <p className="text-sm text-[#e8e6e1]/50 mb-2">{p.authors.join(', ')}</p>
-                <p className="text-sm text-[#e8e6e1]/40 font-mono">{p.venue}</p>
-                <div className="flex flex-wrap gap-2 mt-4">{p.tags.map((t,i) => <span key={i} className="px-2 py-1 border border-[#c9a227]/20 text-xs text-[#e8e6e1]/50">{t}</span>)}</div>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="font-mono text-sm text-[#c9a227]">{p.year}</span>
+                  <span className="px-2 py-1 bg-[#c9a227]/10 text-[#c9a227] text-xs">{p.type}</span>
+                  {p.arxiv && (
+                    <span className="px-2 py-1 bg-[#e8e6e1]/10 text-[#e8e6e1]/60 text-xs font-mono">
+                      arXiv:{p.arxiv}
+                    </span>
+                  )}
+                </div>
+                
+                <h3 className="font-display text-xl mb-2">
+                  {p.link ? (
+                    <a 
+                      href={p.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="hover:text-[#c9a227] transition-colors"
+                    >
+                      {p.title} →
+                    </a>
+                  ) : p.title}
+                </h3>
+                
+                <p className="text-sm text-[#e8e6e1]/70 mb-2">
+                  {p.authors.join(', ')}
+                </p>
+                
+                <p className="text-sm text-[#e8e6e1]/40 font-mono mb-4">{p.venue}</p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {p.tags.map((t, i) => (
+                    <span 
+                      key={i} 
+                      className="px-2 py-1 border border-[#c9a227]/20 text-xs text-[#e8e6e1]/50"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -620,14 +839,20 @@ function NewsPage({ news }) {
           <h1 className="font-display text-5xl md:text-6xl mt-4 mb-12">News</h1>
           <div className="space-y-8">
             {news.map((n,i) => (
-              <div key={i} className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 card">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-sm font-mono text-[#e8e6e1]/40">{n.date}</span>
-                  <span className="px-2 py-1 bg-[#c9a227]/10 text-[#c9a227] text-xs">{n.cat}</span>
-                </div>
-                <h2 className="font-display text-2xl mb-3">{n.title}</h2>
-                <p className="text-[#e8e6e1]/60">{n.sum}</p>
-              </div>
+               <div key={i} className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 card">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-sm font-mono text-[#e8e6e1]/40">{n.date}</span>
+    <span className="px-2 py-1 bg-[#c9a227]/10 text-[#c9a227] text-xs">{n.cat}</span>
+  </div>
+  <h2 className="font-display text-2xl mb-3">
+    {n.link ? (
+      <a href={n.link} target="_blank" rel="noopener noreferrer" className="hover:text-[#c9a227] transition-colors">
+        {n.title} →
+      </a>
+    ) : n.title}
+  </h2>
+  <p className="text-[#e8e6e1]/60">{n.sum}</p>
+</div>
             ))}
           </div>
         </div>
@@ -643,25 +868,66 @@ function JoinPage() {
         <div className="max-w-4xl mx-auto px-6">
           <span className="font-mono text-[#c9a227] tracking-[0.3em] text-sm">APPLY</span>
           <h1 className="font-display text-5xl md:text-6xl mt-4 mb-8">The Axiom Protocol</h1>
-          <div className="space-y-8">
+          
+          <div className="mb-12 p-6 bg-[#0f0f18] border border-[#c9a227]/20">
+            <p className="text-[#e8e6e1]/70 mb-4">
+              Joining Axiom is a multi-stage process designed to identify minds that thrive on connection, rigor, and unconventional problem-solving. 
+              We value your thought process and collaborative potential far more than your formal credentials.
+            </p>
+          </div>
+
+          <div className="space-y-8 mb-16">
             {[{n:'01',name:'The Aperture',sub:'Initial Application',desc:'Submit your work and answer the foundational question.'},
               {n:'02',name:'The Crucible',sub:'Synthesis Challenge',desc:'Three concepts. One micro-project proposal.'},
               {n:'03',name:'The Dialogue',sub:'Conversation',desc:'30-minute collaborative discussion.'},
               {n:'04',name:'The Micro-Project',sub:'Proof of Work',desc:'6-week project with mentor.'}].map((s,i) => (
               <div key={i} className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 card">
                 <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 border border-[#c9a227] flex items-center justify-center"><span className="font-mono text-[#c9a227]">{s.n}</span></div>
+                  <div className="w-12 h-12 border border-[#c9a227] flex items-center justify-center flex-shrink-0"><span className="font-mono text-[#c9a227]">{s.n}</span></div>
                   <div><h3 className="font-display text-2xl gold-grad">{s.name}</h3><span className="text-sm text-[#e8e6e1]/40 italic">{s.sub}</span><p className="text-[#e8e6e1]/70 mt-4">{s.desc}</p></div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-16 text-center">
-            <button className="px-12 py-5 bg-[#c9a227] text-[#0a0a0f] font-medium tracking-widest uppercase text-sm hover:bg-[#f4d35e]">Begin Application →</button>
+
+          {/* Application Form */}
+          <div className="mb-16">
+            <h2 className="font-display text-3xl mb-6 text-center gold-grad">Stage 1: The Aperture</h2>
+            <div className="bg-[#0f0f18] border border-[#c9a227]/20 p-4 md:p-8">
+              <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfLCKEwk6oV51c6SmUz2RgAOLQSWyML74QLDepxEX_XlFnt-w/viewform?embedded=true" 
+                width="100%" 
+                height="1800" 
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+                className="w-full"
+                style={{border: 'none'}}
+              >
+                Loading…
+              </iframe>
+            </div>
           </div>
-          <div className="mt-16 p-8 border border-[#c9a227]/20 bg-[#c9a227]/5">
+
+          <div className="p-8 border border-[#c9a227]/20 bg-[#c9a227]/5">
             <h3 className="font-display text-xl mb-4">The Aperture Question</h3>
-            <p className="text-[#e8e6e1]/60 italic">"What is a foundational assumption in your field that you believe is flawed or incomplete, and why?"</p>
+            <p className="text-[#e8e6e1]/60 italic mb-4">
+              "What is a foundational assumption in your primary field of study that you believe is flawed or incomplete, and why?"
+            </p>
+            <p className="text-[#e8e6e1]/40 text-sm">
+              We are not looking for a "correct" answer. We are looking for intellectual curiosity, 
+              the courage to challenge established paradigms, and clarity of thought.
+            </p>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-[#e8e6e1]/60 text-sm mb-2">
+              Questions about the application process? Contact us at{' '}
+              <a href="mailto:info@axiomresearchs.org" className="text-[#c9a227] hover:underline">
+                info@axiomresearchs.org
+              </a>
+            </p>
+            <p className="text-[#e8e6e1]/60 italic mt-6">Axiom: First Principles. Final Proofs.</p>
           </div>
         </div>
       </section>
