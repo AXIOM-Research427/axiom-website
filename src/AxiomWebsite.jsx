@@ -416,11 +416,25 @@ export default function AxiomWebsite() {
           </div>
           <div className="mt-12 pt-8 border-t border-[#c9a227]/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-[#e8e6e1]/30">© 2025 Axiom</p>
-            <div className="flex gap-6">
-              <button className="text-xs text-[#e8e6e1]/40 hover:text-[#c9a227]">GitHub</button>
-              <button className="text-xs text-[#e8e6e1]/40 hover:text-[#c9a227]">Contact</button>
-              <button onClick={() => nav('404')} className="text-xs text-[#e8e6e1]/10 hover:text-[#e8e6e1]/30">404</button>
-            </div>
+             <div className="flex gap-6">
+  <a 
+    href="https://github.com/AXIOM-Research427/axiom-website" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="text-xs text-[#e8e6e1]/40 hover:text-[#c9a227] transition-colors"
+  >
+    GitHub
+  </a>
+  <a 
+    href="mailto:info@axiomresearchs.org" 
+    className="text-xs text-[#e8e6e1]/40 hover:text-[#c9a227] transition-colors"
+  >
+    Contact
+  </a>
+     <button onClick={() => nav('404')} className="text-xs text-[#e8e6e1]/40 hover:text-[#c9a227] transition-colors">
+  Solve the Puzzle
+    </button>
+</div>
           </div>
         </div>
       </footer>
@@ -1313,30 +1327,57 @@ function TestPage({ questions, setScore, nav }) {
     </div>
   );
 }
-
 function PuzzlePage({ nav }) {
   const [input, setInput] = useState('');
   const [solved, setSolved] = useState(false);
   const [hint, setHint] = useState(0);
+  const [attempts, setAttempts] = useState(0);
+  
   const answers = ['axiom','axiomzero','zero','firstprinciples'];
-  const hints = ["The answer lies in what we are.","What comes before all axioms?","Think foundational."];
+  const hints = [
+    "The answer lies in what we are.",
+    "What comes before all axioms?",
+    "Think foundational.",
+    "Our name is the key.",
+    "First Principles. Final Proofs."
+  ];
 
   const check = (e) => {
     e.preventDefault();
-    if (answers.includes(input.toLowerCase().trim())) setSolved(true);
-    else setHint(Math.min(hint + 1, hints.length));
+    setAttempts(attempts + 1);
+    
+    if (answers.includes(input.toLowerCase().trim())) {
+      setSolved(true);
+    } else {
+      setHint(Math.min(hint + 1, hints.length - 1));
+    }
   };
 
   if (solved) {
     return (
       <div className="pt-24 min-h-screen flex items-center justify-center">
         <div className="max-w-xl mx-auto px-6 text-center anim-fade">
-          <span className="text-6xl">🔓</span>
+          <span className="text-6xl mb-6 block">🔓</span>
           <h1 className="font-display text-4xl mt-6 mb-4 gold-grad">The Portal Opens</h1>
-          <p className="text-[#e8e6e1]/60 mb-8">404 is not an error—it's a question. You answered it.</p>
-          <div className="flex gap-4 justify-center">
-            <button onClick={() => nav('occultum')} className="px-6 py-3 bg-[#c9a227] text-[#0a0a0f] text-sm">Enter Occultum</button>
-            <button onClick={() => nav('home')} className="px-6 py-3 border border-[#c9a227] text-[#c9a227] text-sm">Home</button>
+          <p className="text-[#e8e6e1]/60 mb-4">404 is not an error—it's a question. You answered it.</p>
+          <div className="inline-block px-4 py-2 bg-[#c9a227]/10 border border-[#c9a227]/30 mb-8">
+            <p className="text-[#c9a227] text-sm">
+              ✨ Solved in <span className="font-bold">{attempts}</span> {attempts === 1 ? 'attempt' : 'attempts'}!
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => nav('occultum')} 
+              className="px-6 py-3 bg-[#c9a227] text-[#0a0a0f] text-sm hover:bg-[#f4d35e] transition-all"
+            >
+              Enter Occultum →
+            </button>
+            <button 
+              onClick={() => nav('home')} 
+              className="px-6 py-3 border border-[#c9a227] text-[#c9a227] text-sm hover:bg-[#c9a227]/10 transition-all"
+            >
+              Home
+            </button>
           </div>
         </div>
       </div>
@@ -1348,15 +1389,59 @@ function PuzzlePage({ nav }) {
       <div className="max-w-xl mx-auto px-6 text-center">
         <h1 className="font-display text-8xl text-[#c9a227]/20 mb-4">404</h1>
         <p className="font-display text-2xl text-[#e8e6e1]/80 mb-8">This page does not exist... or does it?</p>
+        
         <div className="bg-[#0f0f18] border border-[#c9a227]/10 p-8">
           <p className="text-[#e8e6e1]/60 mb-6">This page is a locked door. The key is a word.</p>
-          <form onSubmit={check} className="flex gap-2">
-            <input type="text" value={input} onChange={e => setInput(e.target.value)} placeholder="Enter the key..." className="flex-1 bg-[#0a0a0f] border border-[#c9a227]/30 px-4 py-3 text-[#e8e6e1] focus:border-[#c9a227] outline-none font-mono" />
-            <button type="submit" className="px-6 py-3 bg-[#c9a227] text-[#0a0a0f]">→</button>
+          
+          <form onSubmit={check} className="flex gap-2 mb-4">
+            <input 
+              type="text" 
+              value={input} 
+              onChange={e => setInput(e.target.value)} 
+              placeholder="Enter the key..." 
+              className="flex-1 bg-[#0a0a0f] border border-[#c9a227]/30 px-4 py-3 text-[#e8e6e1] focus:border-[#c9a227] outline-none font-mono" 
+            />
+            <button 
+              type="submit" 
+              className="px-6 py-3 bg-[#c9a227] text-[#0a0a0f] hover:bg-[#f4d35e] transition-all"
+            >
+              →
+            </button>
           </form>
-          {hint > 0 && <p className="text-[#c9a227]/60 text-sm mt-4 font-mono">Hint: {hints[hint-1]}</p>}
+          
+          {/* Attempt Counter */}
+          {attempts > 0 && (
+            <div className="mb-4 p-3 bg-[#c9a227]/5 border border-[#c9a227]/20">
+              <p className="text-[#e8e6e1]/50 text-xs font-mono">
+                Attempts: <span className="text-[#c9a227]">{attempts}</span>
+              </p>
+            </div>
+          )}
+          
+          {/* Progressive Hints */}
+          {hint > 0 && (
+            <div className="p-4 bg-[#0a0a0f] border-l-2 border-[#c9a227] anim-fade">
+              <p className="text-[#c9a227]/80 text-sm font-mono mb-1">Hint {hint}:</p>
+              <p className="text-[#e8e6e1]/70 text-sm italic">{hints[hint]}</p>
+            </div>
+          )}
+          
+          {/* Encouragement */}
+          {attempts > 3 && !solved && (
+            <div className="mt-4 p-3 bg-[#c9a227]/5 border border-[#c9a227]/10">
+              <p className="text-[#e8e6e1]/60 text-xs italic">
+                Keep trying! The curious are always rewarded.
+              </p>
+            </div>
+          )}
         </div>
-        <button onClick={() => nav('home')} className="mt-8 text-sm text-[#e8e6e1]/40 hover:text-[#c9a227]">Or return to safety →</button>
+        
+        <button 
+          onClick={() => nav('home')} 
+          className="mt-8 text-sm text-[#e8e6e1]/40 hover:text-[#c9a227] transition-colors"
+        >
+          Or return to safety →
+        </button>
       </div>
     </div>
   );
