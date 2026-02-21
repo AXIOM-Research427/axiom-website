@@ -53,7 +53,6 @@ const testQuestions = [
   { q: "Neural net: 99.9% accuracy, no explainability. Symbolic: 95%, full explainability. For medical diagnosis?", opts: ["Neural—accuracy saves lives", "Symbolic—accountability needs understanding", "Hybrid approach", "Depends on failure modes"], correct: 3, exp: "Failure modes matter more than averages in medicine." },
   { q: "3 months into a theory, new data contradicts your central assumption. Response?", opts: ["Defend with alternative explanations", "Abandon entirely", "Publish negative and pivot", "Examine if data challenges assumption or interpretation"], correct: 3, exp: "Often contradictions reveal flawed interpretation, not theory." }
 ];
-
 const members = [
   { 
     id: 'founder', 
@@ -90,10 +89,44 @@ const members = [
     bio: 'Richard is a Research Associate at Carnegie Mellon University Africa, where he focuses on culturally sensitive social robotics for Africa. His current work explore how Rwandan cultural norms and behaviors can be integrated into human-robot interaction to ensure more intuitive and context-aware robotics for African communities. With a strong background in Embedded Systems and Robotics, he holds a Master\'s degree in Electrical and Computer Engineering from CMU Africa.', 
     research: ['Social Robotics', 'Human-Robot Interaction', 'Embedded Systems', 'Cultural Computing'] 
   },
+  
+  { 
+    id: 'jeremiah', 
+    name: 'Jeremiah Ayock Ishaya', 
+    role: 'Researcher and Educator in AI & Data Science', 
+    division: 'Machinatores', 
+    tier: 'Core', 
+    image: '/photos/Jeremiah.jpeg', 
+    location: 'Kigali, Rwanda', 
+    bio: 'Jeremiah Ayock Ishaya is a researcher and educator in Artificial Intelligence and Data Science, with a focus on applying machine learning to real-world challenges in health, agriculture, education, and child development. He has experience applying and teaching AI, ML, and data-driven methods to students and professionals, making complex concepts accessible and practical. His current research explores multimodal machine learning for analysing parent–child interactions, aiming to create scalable and culturally adaptable tools for global impact.', 
+    research: ['Multimodal ML', 'Educational AI', 'Healthcare Applications', 'Child Development', 'ML Education'] 
+  },
+  { 
+    id: 'jodelle', 
+    name: 'Aurelie Jodelle Kemme', 
+    role: 'Data Scientist & Bioinformatics Researcher', 
+    division: 'Machinatores', 
+    tier: 'Core', 
+    image: '/photos/Jodelle.jpeg', 
+    location: 'South Africa', 
+    bio: 'Aurelie Jodelle Kemme is a Data Scientist and Bioinformatics researcher currently pursuing her PhD at the University of South Africa under the Carnegie Corporation of New York grant. She specialises in turning complex biological and molecular data into actionable insights for healthcare and life sciences. Her work focuses on building AI-driven solutions for drug discovery, disease diagnostics, and workflow optimisation, combining predictive modelling, structural analysis, and high-dimensional data analytics. She has experience in computational modelling of protein structures and molecular datasets, supporting real-world applications such as viral genomics, HPV detection, and mRNA sequence analysis. Aurelie is passionate about leveraging advanced computational methods to create scalable, precision-driven tools that improve healthcare outcomes and drive innovation across global contexts.', 
+    research: ['Bioinformatics', 'Drug Discovery', 'Molecular Diagnostics', 'Protein Structure Analysis', 'Precision Medicine'] 
+  },
+  { 
+    id: 'hajara', 
+    name: 'Hajara Kandeh', 
+    role: 'Applied Mathematician in Climate Science', 
+    division: 'Navigatores', 
+    tier: 'Core', 
+    image: '/photos/Hajara.jpg', 
+    location: 'Kigali, Rwanda', 
+    bio: 'Hajara is a PhD student working on climate science and its applications. With a background in mathematics and physics, she studies how climate variability shapes agriculture and food security in Africa. Her research uses quantitative modeling, data analysis, and machine learning to quantify risk and inform adaptation. She values reproducible methods, well-documented datasets, and responsible deployment in community settings. Her aim is to translate measurements and models into clear, actionable evidence that supports resilience and sustainable development.', 
+    research: ['Climate Science', 'Agriculture & Food Security', 'Quantitative Modeling', 'Climate Risk Analysis', 'ML for Climate'] 
+  },
   { 
     id: 'stephen', 
     name: 'Stephen Nyaranga', 
-    role: 'PhD Student & IT Lead', 
+    role: 'PhD Student & IT Coordinator', 
     division: 'Navigatores', 
     tier: 'Core', 
     image: '/photos/Stephen.jpg', 
@@ -150,9 +183,22 @@ const publications = [
 ];
 
 const projects = [
-  { id: 'chiral', name: 'Project Chiral Dynamics', status: 'Active', division: 'Collegium Infinitatis', desc: 'Formalizing fundamental invariants of complex adaptive systems.', leads: ['The Founder', 'Sophia Müller'] },
-  { id: 'veridian', name: 'Project Veridian Protocol', status: 'Active', division: 'Machinatores', desc: 'Mathematically verifiable Machine Reasoning systems.', leads: ['Kai Tanaka', 'Marcus Adebayo'] },
-  
+  { 
+    id: 'chiral', 
+    name: 'Project Chiral Dynamics', 
+    status: 'Active', 
+    division: 'Collegium Infinitatis', 
+    desc: 'Formalizing fundamental invariants of complex adaptive systems.', 
+    leads: ['To be assigned'] 
+  },
+  { 
+    id: 'veridian', 
+    name: 'Project Veridian Protocol', 
+    status: 'Active', 
+    division: 'Machinatores', 
+    desc: 'Mathematically verifiable Machine Reasoning systems.', 
+    leads: ['To be assigned'] 
+  },
 ];
 
 const news = [
