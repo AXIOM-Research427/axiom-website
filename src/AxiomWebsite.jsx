@@ -58,7 +58,7 @@ const members = [
   { 
     id: 'founder', 
     name: 'Gnankan Landry Regis N\'guessan', 
-    role: 'Founder & Founding Director', 
+    role: 'Founder', 
     division: 'Collegium Infinitatis', 
     tier: 'Council', 
     isFounder: true, 
@@ -291,8 +291,7 @@ export default function AxiomWebsite() {
 
   const nav = (p) => { setPage(p); setMenuOpen(false); setSelectedMember(null); setSelectedProject(null); };
 
-  const navLinks = ['home','about','people','research','projects','publications','news','join'];
-
+  const navLinks = ['home','about','people','research','activities','projects','publications','news','join'];
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-[#e8e6e1]" style={{fontFamily:"'DM Sans',sans-serif"}}>
       <style>{`
@@ -385,6 +384,7 @@ export default function AxiomWebsite() {
       {page === 'mirror' && <MirrorPage path={userPath} nav={nav} />}
       {page === 'axiom-test' && <TestPage questions={testQuestions} setScore={setTestScore} nav={nav} />}
       {page === '404' && <PuzzlePage nav={nav} />}
+      {page === 'activities' && <ActivitiesPage />}
 
       {/* Cartographer progress */}
       {cartSymbols.length > 0 && cartSymbols.length < 5 && (
@@ -428,10 +428,10 @@ export default function AxiomWebsite() {
   );
 }
 
-// Page Components
 function HomePage({ nav, discoverSymbol }) {
   return (
     <>
+      {/* Hero Section */}
       <section className="min-h-screen relative flex items-center justify-center grid-bg">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 text-8xl text-[#c9a227]/5 font-display float">∆</div>
@@ -444,59 +444,301 @@ function HomePage({ nav, discoverSymbol }) {
           <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-semibold mb-6 anim-fade anim-d2">
             <span className="gold-grad">∆</span>X<span className="gold-grad">I</span>∅<span className="gold-grad">M</span><span className="text-5xl md:text-7xl align-middle">■</span>
           </h1>
-          <p className="font-display text-2xl md:text-3xl text-[#e8e6e1]/90 mb-8 anim-fade anim-d3 italic">A Call to Unbounded Inquiry</p>
-          <p className="text-lg text-[#e8e6e1]/60 max-w-2xl mx-auto mb-12 anim-fade anim-d4">
-            A research collective starting from first principles, ending with things that work.
-            <span className="inv-text"> Type the coordinates of origin.</span>
+          <p className="font-display text-2xl md:text-3xl text-[#e8e6e1]/90 mb-8 anim-fade anim-d3 italic">
+            A Call to Fundamental and Open Inquiry
+          </p>
+          <p className="text-lg text-[#e8e6e1]/70 max-w-3xl mx-auto mb-6 anim-fade anim-d4 leading-relaxed">
+            A research collective that begins with first principles and delivers systems that work in the real world.
+          </p>
+          <p className="text-base text-[#e8e6e1]/60 max-w-3xl mx-auto mb-8 anim-fade anim-d4">
+            We develop deep theory, translate it into working systems, and test ideas under real constraints.
+          </p>
+          <p className="text-base text-[#e8e6e1]/60 max-w-3xl mx-auto mb-12 anim-fade anim-d4">
+            Our work supports institutions, governments, NGOs, and mission-driven organizations that need reliable, explainable, 
+            and deployable solutions for complex societal and technological challenges.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center anim-fade anim-d4">
-            <button onClick={() => nav('about')} className="px-8 py-4 bg-[#c9a227] text-[#0a0a0f] font-medium tracking-widest uppercase text-sm hover:bg-[#f4d35e]">Explore Vision</button>
-            <button onClick={() => nav('join')} className="px-8 py-4 border border-[#e8e6e1]/30 tracking-widest uppercase text-sm hover:border-[#c9a227] hover:text-[#c9a227]">Join Axiom</button>
+            <button onClick={() => nav('about')} className="px-8 py-4 bg-[#c9a227] text-[#0a0a0f] font-medium tracking-widest uppercase text-sm hover:bg-[#f4d35e] transition-all">
+              Explore Vision
+            </button>
+            <button onClick={() => nav('join')} className="px-8 py-4 border border-[#e8e6e1]/30 tracking-widest uppercase text-sm hover:border-[#c9a227] hover:text-[#c9a227] transition-all">
+              Join Axiom
+            </button>
           </div>
         </div>
       </section>
-      <section className="py-24 bg-[#08080c]">
+      {/* Our Activities Preview */}
+      <section className="py-24 bg-[#0a0a0f]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center mb-12">
-            <h2 className="font-display text-3xl">Latest News</h2>
-            <button onClick={() => nav('news')} className="text-sm text-[#c9a227] hover:underline">View all →</button>
+            <h2 className="font-display text-4xl gold-grad">Our Activities</h2>
+            <button onClick={() => nav('activities')} className="text-sm text-[#c9a227] hover:underline">View all →</button>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {news.filter(n => n.featured).map((n, i) => (
-              <div key={i} className="bg-[#0a0a0f] border border-[#c9a227]/10 p-8 card">
-                <span className="text-xs font-mono text-[#c9a227]/60">{n.date}</span>
-                <span className="mx-2 text-[#c9a227]/30">•</span>
-                <span className="text-xs tracking-widest uppercase text-[#c9a227]">{n.cat}</span>
-                <h3 className="font-display text-2xl mt-4 mb-3">{n.title}</h3>
-                <p className="text-[#e8e6e1]/60">{n.sum}</p>
-              </div>
+          <p className="text-lg text-[#e8e6e1]/60 mb-12 max-w-3xl">
+            We design our activities to cultivate deep thinking, collaboration, and real-world problem solving.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {title: 'Seminars', desc: 'Members present research and get feedback', icon: '📊'},
+              {title: 'Paper Reading Circles', desc: 'Deep study of foundational and emerging ideas', icon: '📚'},
+              {title: 'Scientific Cafés', desc: 'Informal rigorous discussions and open dialogues', icon: '☕'},
+              {title: 'Build Sprints', desc: 'Translate theory into working prototypes', icon: '⚡'},
+              {title: 'Training Labs', desc: 'Hands-on programs beyond tutorials', icon: '🔬'},
+              {title: 'Community Culture', desc: 'Team building, retreats, and mentorship', icon: '🤝'}
+            ].map((activity, i) => (
+              <button 
+                key={i} 
+                onClick={() => nav('activities')}
+                className="bg-[#0f0f18] border border-[#c9a227]/10 p-6 card text-left hover:border-[#c9a227]/40 transition-all group"
+              >
+                <div className="text-3xl mb-4">{activity.icon}</div>
+                <h3 className="font-display text-xl mb-2 group-hover:text-[#c9a227] transition-colors">{activity.title}</h3>
+                <p className="text-sm text-[#e8e6e1]/60">{activity.desc}</p>
+                <span className="text-[#c9a227] text-sm mt-4 inline-block group-hover:underline">Learn more →</span>
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+
+      {/* What We Offer Section */}
+      <section className="py-24 bg-[#08080c]">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="font-display text-4xl md:text-5xl mb-6 text-center gold-grad">What We Offer</h2>
+          <p className="text-xl text-[#e8e6e1]/70 text-center max-w-3xl mx-auto mb-12">
+            We work across research, development, and capacity building to ensure ideas move from theory to impact.
+          </p>
+          
+          <div className="bg-[#0a0a0f] border border-[#c9a227]/10 p-8 md:p-12">
+            <p className="text-[#e8e6e1]/80 mb-8 text-lg font-display">
+              Our activities include but are not limited to:
+            </p>
+            <div className="space-y-6">
+              {[
+                {
+                  title: 'Fundamental Research',
+                  desc: 'Mathematics, computation, and machine reasoning'
+                },
+                {
+                  title: 'Research & Development',
+                  desc: 'Software, intelligent systems, robotics, and autonomous platforms'
+                },
+                {
+                  title: 'Training & Workshops',
+                  desc: 'Advanced programs for students, researchers, professionals, and institutions'
+                },
+                {
+                  title: 'Collaborative Programs',
+                  desc: 'Partnerships with universities, governments, NGOs, and public-interest organizations'
+                }
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-4 p-4 bg-[#0f0f18] border border-[#c9a227]/5 hover:border-[#c9a227]/20 transition-all">
+                  <span className="text-[#c9a227] text-xl flex-shrink-0 font-bold">•</span>
+                  <div>
+                    <h3 className="text-[#c9a227] font-medium mb-1">{item.title}</h3>
+                    <p className="text-[#e8e6e1]/70">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 pt-8 border-t border-[#c9a227]/10">
+              <p className="text-[#e8e6e1]/70 italic text-center">
+                All our work is grounded in first principles and designed for real-world deployment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Research Areas */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center mb-12">
-            <h2 className="font-display text-3xl">Research Areas</h2>
+            <h2 className="font-display text-4xl gold-grad">Research Areas</h2>
             <button onClick={() => nav('research')} className="text-sm text-[#c9a227] hover:underline">Learn more →</button>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {[{icon:'∿',title:'Foundations',desc:'Pure mathematics, logic, computation'},
-              {icon:'⊛',title:'Machine Reasoning',desc:'Verified AI and formal methods'},
-              {icon:'◈',title:'Applied Systems',desc:'Climate, sensing, public health'}].map((a, i) => (
-              <div key={i} className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 card text-center">
-                <div className="text-4xl text-[#c9a227] mb-4">{a.icon}</div>
-                <h3 className="font-display text-xl mb-3">{a.title}</h3>
-                <p className="text-sm text-[#e8e6e1]/50">{a.desc}</p>
+            {[
+              {icon:'∿', title:'Foundations', desc:'Pure mathematics, logic, computation'},
+              {icon:'⊛', title:'Machine Reasoning', desc:'Verified AI and formal methods'},
+              {icon:'◈', title:'Applied Systems', desc:'Climate, robotics, public health'}
+            ].map((a, i) => (
+              <div key={i} className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 card text-center hover:border-[#c9a227]/30 transition-all">
+                <div className="w-16 h-16 border border-[#c9a227] flex items-center justify-center mx-auto mb-6">
+                  <span className="text-3xl text-[#c9a227]">{a.icon}</span>
+                </div>
+                <h3 className="font-display text-xl mb-3 gold-grad">{a.title}</h3>
+                <p className="text-sm text-[#e8e6e1]/60">{a.desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Latest News */}
+      <section className="py-24 bg-[#08080c]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex justify-between items-center mb-12">
+            <h2 className="font-display text-4xl gold-grad">Latest News</h2>
+            <button onClick={() => nav('news')} className="text-sm text-[#c9a227] hover:underline">View all →</button>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {news.filter(n => n.featured).slice(0, 4).map((n, i) => (
+              <div key={i} className="bg-[#0a0a0f] border border-[#c9a227]/10 p-8 card hover:border-[#c9a227]/30 transition-all">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs font-mono text-[#c9a227]/60">{n.date}</span>
+                  <span className="mx-2 text-[#c9a227]/30">•</span>
+                  <span className="text-xs tracking-widest uppercase text-[#c9a227]">{n.cat}</span>
+                </div>
+                <h3 className="font-display text-xl mb-3">
+                  {n.link ? (
+                    <a href={n.link} target="_blank" rel="noopener noreferrer" className="hover:text-[#c9a227] transition-colors">
+                      {n.title} →
+                    </a>
+                  ) : n.title}
+                </h3>
+                <p className="text-[#e8e6e1]/60 text-sm">{n.sum}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-24 border-t border-[#c9a227]/10">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="font-display text-4xl md:text-5xl mb-6 gold-grad">Join the Collective</h2>
+          <p className="text-xl text-[#e8e6e1]/70 mb-8 max-w-2xl mx-auto">
+            We are looking for dedicated thinkers and builders who thrive on connection, rigor, and unconventional problem-solving.
+          </p>
+          <button onClick={() => nav('join')} className="px-10 py-5 bg-[#c9a227] text-[#0a0a0f] font-medium tracking-widest uppercase text-sm hover:bg-[#f4d35e] transition-all">
+            Apply Now →
+          </button>
+          <p className="text-sm text-[#e8e6e1]/40 mt-6">
+            We value your thought process and collaborative potential far more than formal credentials.
+          </p>
         </div>
       </section>
     </>
   );
 }
 
+function ActivitiesPage() {
+  return (
+    <div className="pt-24">
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <span className="font-mono text-[#c9a227] tracking-[0.3em] text-sm">WHAT WE DO</span>
+          <h1 className="font-display text-5xl md:text-6xl mt-4 mb-8">Our Activities</h1>
+          <p className="text-xl text-[#e8e6e1]/70 mb-4">
+            Axiom is not only about outputs. It is about how ideas are formed, tested, shared, and matured.
+          </p>
+          <p className="text-lg text-[#e8e6e1]/60 mb-16">
+            We design our activities to cultivate deep thinking, collaboration, and real-world problem solving.
+          </p>
+
+          <div className="space-y-12">
+            {/* Seminars */}
+            <div className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 md:p-10">
+              <h3 className="font-display text-2xl md:text-3xl gold-grad mb-4">Seminars</h3>
+              <p className="text-[#e8e6e1]/70">
+                Axiom members present their research or works and get feedback.
+              </p>
+            </div>
+
+            {/* Paper Reading & Deep Study Circles */}
+            <div className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 md:p-10">
+              <h3 className="font-display text-2xl md:text-3xl gold-grad mb-4">Paper Reading & Deep Study Circles</h3>
+              <p className="text-[#e8e6e1]/70 mb-6 italic">Not paper skimming. Not trend chasing.</p>
+              <p className="text-[#e8e6e1]/70 mb-4">We run structured reading groups focused on:</p>
+              <div className="space-y-3 mb-6">
+                {['Foundational papers and books', 'Emerging ideas that challenge existing paradigms', 'Cross-disciplinary works connecting mathematics, computation, and systems'].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 ml-4">
+                    <span className="text-[#c9a227] flex-shrink-0">•</span>
+                    <p className="text-[#e8e6e1]/70">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[#e8e6e1]/60 italic">The goal is understanding, not speed. We read to extract structure, assumptions, and long-term insight.</p>
+            </div>
+
+            {/* Scientific Cafés */}
+            <div className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 md:p-10">
+              <h3 className="font-display text-2xl md:text-3xl gold-grad mb-4">Scientific Cafés & Open Dialogues</h3>
+              <p className="text-[#e8e6e1]/70 mb-4">We host informal but rigorous discussions where ideas are explored openly.</p>
+              <p className="text-[#e8e6e1]/70 mb-4">These sessions are designed to:</p>
+              <div className="space-y-3 mb-6">
+                {['Break down complex ideas in accessible language', 'Connect theory to real societal and technological questions', 'Encourage dialogue between researchers, practitioners, and the public'].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 ml-4">
+                    <span className="text-[#c9a227] flex-shrink-0">•</span>
+                    <p className="text-[#e8e6e1]/70">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[#e8e6e1]/60 italic">No slides. No hierarchy. Just ideas, clarity, and honest debate.</p>
+            </div>
+
+            {/* Build Sprints */}
+            <div className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 md:p-10">
+              <h3 className="font-display text-2xl md:text-3xl gold-grad mb-4">Build Sprints & Collective Prototyping</h3>
+              <p className="text-[#e8e6e1]/70 mb-6 italic">Ideas must touch reality.</p>
+              <p className="text-[#e8e6e1]/70 mb-4">We organize focused build sessions where members:</p>
+              <div className="space-y-3 mb-6">
+                {['Translate theory into code, models, or hardware', 'Prototype systems rapidly and test assumptions', 'Collaborate across backgrounds, from mathematics to engineering'].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 ml-4">
+                    <span className="text-[#c9a227] flex-shrink-0">•</span>
+                    <p className="text-[#e8e6e1]/70">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[#e8e6e1]/60">These sprints often lead to software tools, experimental systems, or research directions.</p>
+            </div>
+
+            {/* Training Labs */}
+            <div className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 md:p-10">
+              <h3 className="font-display text-2xl md:text-3xl gold-grad mb-4">Training Labs & Skill Intensives</h3>
+              <p className="text-[#e8e6e1]/70 mb-4">We run hands-on training programs that go beyond tutorials.</p>
+              <p className="text-[#e8e6e1]/70 mb-4">Participants work on:</p>
+              <div className="space-y-3 mb-6">
+                {['Real models and systems', 'Constrained environments (limited data, power, or hardware)', 'Full pipelines from theory to implementation'].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 ml-4">
+                    <span className="text-[#c9a227] flex-shrink-0">•</span>
+                    <p className="text-[#e8e6e1]/70">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[#e8e6e1]/60">These labs are designed for students, professionals, and institutions seeking deep, transferable skills.</p>
+            </div>
+
+            {/* Community */}
+            <div className="bg-[#0f0f18] border border-[#c9a227]/10 p-8 md:p-10">
+              <h3 className="font-display text-2xl md:text-3xl gold-grad mb-4">Community & Team Culture</h3>
+              <p className="text-[#e8e6e1]/70 mb-4">We believe strong ideas grow in strong communities.</p>
+              <p className="text-[#e8e6e1]/70 mb-4">Axiom organizes:</p>
+              <div className="space-y-3 mb-6">
+                {['Team-building activities centered on collaboration and trust', 'Informal meetups and retreats for reflection and planning', 'Mentorship interactions across experience levels'].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 ml-4">
+                    <span className="text-[#c9a227] flex-shrink-0">•</span>
+                    <p className="text-[#e8e6e1]/70">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[#e8e6e1]/60">We build not just systems, but people.</p>
+            </div>
+          </div>
+
+          <div className="mt-16 p-8 bg-[#c9a227]/5 border-l-4 border-[#c9a227]">
+            <p className="text-xl font-display italic text-[#c9a227] text-center">
+              We do not just produce results. We cultivate minds, methods, and momentum.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
 function AboutPage({ discoverSymbol }) {
   return (
     <div className="pt-24">
@@ -563,6 +805,7 @@ function AboutPage({ discoverSymbol }) {
     </div>
   );
 }
+
 function PeoplePage({ members, selected, setSelected, discoverSymbol }) {
   if (selected) {
     const m = members.find(x => x.id === selected);
