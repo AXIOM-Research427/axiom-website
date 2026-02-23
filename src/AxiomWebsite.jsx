@@ -134,6 +134,17 @@ const members = [
     bio: 'Stephen Nyaranga is a young African scientist whose work sits at the intersection of climate science, artificial intelligence, and geospatial technology. He is currently a PhD Fellow in Climate Science under the prestigious CLARITY-Africa Program, an international initiative led by Imperial College London in collaboration with AIMS-RIC and partner institutions across Africa. Stephen\'s research explores how deep learning and satellite remote sensing—especially Sentinel-1 SAR time-series analysis—can be used to better understand urban flooding, climate extremes, and community vulnerability in rapidly growing African cities. His work aims to develop tools that strengthen early warning systems, disaster preparedness, and climate resilience for some of the most at-risk populations. Before beginning his PhD, Stephen completed an MSc in Mathematical Sciences (Data Science) at AIMS–Senegal, where he worked on AI-driven climate modeling, and he pursued an MSc in Geophysics at ICTP–EAIFR, specializing in Earth observation and InSAR deformation analysis. He graduated with First Class Honours in Physics and Mathematics from Karatina University, Kenya. Alongside his academic journey, Stephen has built a strong career in technology leadership. As the Head of IT at Vatel Rwanda, he has driven major digital transformation initiatives, from infrastructure modernization and cloud integration to AI adoption in teaching and operations. He has trained faculty, students, and staff on artificial intelligence, developed automated systems, and enhanced the institution\'s digital visibility—impacting hundreds of learners. Stephen\'s work reflects his passion for combining science, technology, and innovation to solve real-world problems. His research interests span GeoAI, hydrological modeling, Earth observation, climate resilience, and AI for sustainable development.', 
     research: ['GeoAI', 'Climate Resilience', 'SAR Analysis', 'Earth Observation', 'Hydrological Modeling'] 
   },
+  { 
+    id: 'ramadhani', 
+    name: 'Ramadhani Shafii Wanjenja', 
+    role: 'Software Engineering Student & Robotics Practitioner', 
+    division: 'Machinatores', 
+    tier: 'Core', 
+    image: '/photos/Ramadhani.jpeg', 
+    location: 'Kigali, Rwanda', 
+    bio: 'Ramadhani Shafii Wanjenja is a Software Engineering student, robotics practitioner, and founder of L-Guard Ltd, a technology venture focused on building intelligent embedded systems for real-world safety and mobility challenges. His work spans robotics education, IoT systems, and embedded intelligence, with an emphasis on designing practical and deployable solutions in resource-constrained environments. A central theme of his work is expanding equitable access to skills-based STEM learning by simplifying complex technologies into accessible, beginner-friendly systems. He is the developer of LevKit, a contextual robotics learning platform designed to strengthen foundational technical competencies in under-resourced schools. His broader interests include embedded systems design, edge intelligence, and scalable African-centred technology innovation.', 
+    research: ['Robotics Education', 'Embedded Systems', 'IoT Systems', 'Edge Intelligence', 'STEM Learning'] 
+  },
 ];
 const publications = [
   { 
